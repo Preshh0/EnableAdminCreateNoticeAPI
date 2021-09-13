@@ -1,10 +1,9 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
 
 
-class CreateNoticeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = [
-            'id', 'username', 'title', 'department', 'announcement'
-        ]
+class CreateNoticeSerializer(serializers.Serializer):
+
+    username = serializers.CharField(max_length = 20)
+    title = serializers.CharField(max_length = 20)
+    department = serializers.CharField(max_length = 20)
+    announcement = serializers.CharField(max_length = 20)
